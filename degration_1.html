@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>degradation</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        .foo {
+            width:100px;
+            height: 100px;
+            /* 提供回退，利用层叠机制 */
+            background: rgb(255, 128, 0);
+            /* 注意此处标准语法和带浏览器前缀的语法不一样 */
+            background: -webkit-linear-gradient(0deg, yellow, red);
+            background: linear-gradient(90deg, yellow, red);
+        }
+    </style>
+</head>
+<body>
+    <div class="foo"></div>
+</body>
+</html>
