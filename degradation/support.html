@@ -3,8 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>使用@support检测</title>
+    <!--语句被放置在一个CSS区块中,该区块以大括号分割-->
+    <!--还有一个由多个CSS声明检测组成的条件,它是一个键值组合, 由逻辑与,逻辑或,逻辑非组合而成.-->
+    <!--这样的条件语句称为支持条件.-->
+    <!-- 该语句可以用来做特性查询. -->
+    <style>
+        h3 {
+            color: red;
+        }
+        @supports (text-shadow: 0 0 .3em gray) {
+            h3 {
+                color: transparent;
+                text-shadow: 0 0 .3em gray;
+            }
+        }
+    </style>
 </head>
 <body>
+    <h3>This is a heading</h3>
     <div class="foo"></div>
 </body>
 </html>
