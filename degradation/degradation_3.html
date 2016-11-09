@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>use javascript</title>
+    <style>
+        .no-textshadow .foo {
+            color: red;
+        }
+        
+        .textshadow .foo {
+            text-shadow: 2px 2px 2px red;
+        }
+    </style>
+</head>
+<body>
+    <div class="foo">This is a div</div>
+    <script>
+        // 如果要检查某个样式是否被支持，核心思路就是在任一元素的element.style对象上检查改属性是否存在
+        function testProperty(property) {
+            var root = document.documentElement;
+            if (property in root.style) {
+//                classList 兼容性不好
+//                root.classList.add(property.toLowerCase());
+                root.className = root.className + ' ' + property.toLowerCase();
+                return true
+            }
+//            root.classList.add('no-' + property.toLowerCase());
+            root.className = root.className + ' no-' + property.toLowerCase();
+            return false
+        }
+        testProperty('textShadow');
+        testProperty('boxSizing');
+        console.log(document.documentElement.className.trim());
+    </script>
+</body>
+</html>
