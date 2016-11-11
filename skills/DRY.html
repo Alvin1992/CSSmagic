@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DRY</title>
+    <style>
+        div {
+            margin-top: 10px;
+        }
+        /* 修改大小 */
+        /* 将长度值都改为em或者百分比，效果的值就变成可缩放的了，而且是依赖字号进行缩放，这样就可以在一处控制按钮的所有尺寸 */
+        /* 这个方法的重点在于判断那些效果应该跟着按钮进行改变，哪些效果应该保持不变 */
+        /* 此处希望字号和其他尺寸能够跟父级的字号建立关联所以使用em， 如果希望和根字号关联可以使用rem */
+        /* 一定搞清楚哪些东西是真正相关的 */
+        .foo button {
+            padding: 6px 16px;
+            border: 1px solid #446d88;
+            background: #58a linear-gradient(#77a0bb, #58a);
+            border-radius: 4px;
+            box-shadow: 0 1px 5px gray;
+            color: white;
+            text-shadow: 0 -1px 1px #335166;
+            font-size: 20px;  /* 如果需要改变父级的字号，就得修改每一处使用绝对值作为字体尺寸的样式 */
+            line-height: 30px; /* 如果调整字号还得调整行高，同时行高和字号相互依赖应表现出来 */
+        }
+
+        /* 自身的字号和父级有关系 */
+        /* padding等大小和自身的大小有关系，自身大小和字号和行高有关系 */
+        .bar button {
+            padding: .3em .8em;
+            border: 1px solid #446d88;
+            background: #58a linear-gradient(#77a0bb, #58a);
+            border-radius: .2em;
+            box-shadow: 0 .05em .25em gray;
+            color: white;
+            text-shadow: 0 -.05em .05em #335166;
+            font-size: 125%;
+            line-height: 1.5;
+        }
+
+        /* 修改颜色 */
+        /* 把半透明的黑色或者白色叠加在主色调上 */
+        .foobar button {
+            padding: .3em .8em;
+            border: 1px solid rgba(0,0,0,.1);
+            /* 推荐使用hsla来产生半透明的白色，因为他的字符长度更短 */
+            background: #58a linear-gradient(hsla(0,0%,100%,.2), transparent);
+            border-radius: .2em;
+            box-shadow: 0 .05em .25em rgba(0,0,0,.5);
+            color: white;
+            text-shadow: 0 -.05em .05em rgba(0,0,0,.5);
+            font-size: 125%;
+            line-height: 1.5;
+        }
+        .foobar .cancel {
+            background-color: #c00;
+        }
+        
+        .foobar .ok {
+            background-color: #6b0;
+        }
+
+        /* 有时候代码量少和代码易维护不可兼得 */
+        .test {
+            width: 300px;
+            border: 10px solid red;
+            border-left-width: 0;
+        }
+
+        /* currentColor */
+        .testColor {
+            color: red;
+        }
+        .testColor p {
+            background: currentColor;
+        }
+        
+        /* 继承 */
+        /* 可以用在任何CSS属性中，而且它总是绑定到父元素的计算值 */
+        a {
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div class="foo">
+        <button>Yes!</button>
+    </div>
+    <div class="bar">
+        <button>Yes!</button>
+    </div>
+    <div class="foobar">
+        <button>Yes!</button>
+        <button class="cancel">Cancel</button>
+        <button class="ok">OK</button>
+    </div>
+    <div class="test">This is a div</div>
+    <div class="testColor">
+        This is a div for currentColor
+        <p>Hello World</p>
+    </div>
+    <div>
+        <a href="http://www.baidu.com">baidu</a>
+    </div>
+    <script>
+        function testValue(id, value, property) {
+            var root = document.documentElement;
+            var dummy = document.createElement('p');
+            dummy.style[property] = value;
+            if (dummy.style[property]) {
+                root.className = root.className + ' ' + id;
+                return true;
+            }
+            root.className = root.className + ' no-' + id;
+            return false;
+        }
+        testValue('cur', 'currentColor', 'color');
+    </script>
+</body>
+</html>
