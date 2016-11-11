@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>响应式网页设计</title>
+</head>
+<body>
+    <h3>媒体查询的端点不应该由具体的设备来决定，而应该根据设计自身来决定</h3>
+    <h3>尽量减少代码重复</h3>
+    <ul>
+        <li>使用百分比长度来取代固定长度</li>
+        <li>在较大分辨率下得到固定宽度使用max-width</li>
+        <li>为替换元素（img，object，video，iframe等）设置一个max-width，值为100%</li>
+        <li>加入背景图片需要完整地铺满一个容器，不管容器的尺寸如何变化，background-size: cover都可以做到，但是移动有带宽的考量</li>
+        <li>当以行列式进行布局时，让视口的宽度来决定列的数量flexbox加上常规的文本折行行为可以实现</li>
+        <li>使用多列文本时，指定column-width而不是指定column-count，这样就可以在较小的屏幕上自动显示为单列布局</li>
+    </ul>
+</body>
+</html>
