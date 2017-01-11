@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>stripes</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            margin: 2em auto 0;
+        }
+        .foo {
+            background: linear-gradient(#fb3 33.3%, #58a 0, #58a 66.6%, yellowgreen 0);
+            background-size: 100% 45px;
+        }
+        .bar {
+            background: linear-gradient(to right, #fb3 50%, #58a 0);
+            background-size: 30px 100%;
+        }
+        .foobar {
+            background: repeating-linear-gradient(60deg, #fb3, #fb3 15px, #58a 0, #58a 30px);
+        }
+        .anotherDiv {
+            background: repeating-linear-gradient(30deg, #79b, #79b 15px, #58a 0, #58a 30px);
+        }
+        .test {
+            background: #58a;
+            background-image: repeating-linear-gradient(30deg, hsla(0, 0%, 100%, .1), hsla(0, 0%, 100%, .1) 15px, transparent 0, transparent 30px);
+        }
+    </style>
+</head>
+<body>
+    <div class="foo"></div>
+    <div class="bar"></div>
+    <div class="foobar"></div>
+    <div class="anotherDiv"></div>
+    <div class="test"></div>
+</body>
+</html>

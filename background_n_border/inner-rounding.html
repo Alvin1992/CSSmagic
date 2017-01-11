@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>inner rounding</title>
+    <style>
+        .foo, .foobar {
+            max-width: 10em;
+            margin: 2em auto 0;
+        }
+        .foo {
+            background: tan;
+            border-radius: .8em;
+            padding: 1em;
+            box-shadow: 0 0 0 .33em #655;
+            outline: .6em solid #655;
+        }
+
+        .foobar {
+            background: #655;
+            padding: .8em;
+        }
+
+        .foobar > div {
+            background: tan;
+            border-radius: .8em;
+            padding: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="foo">
+        This is a div.
+    </div>
+
+    <div class="foobar">
+        <div>I have a nice subtle inner rounding, don't I look pretty?</div>
+    </div>
+</body>
+</html>

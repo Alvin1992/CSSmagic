@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>multiple borders</title>
+    <style>
+        /* box-shadow */
+        div {
+            margin: 2em auto;
+            width: 200px;
+            background-color: yellowgreen;
+        }
+        .foo {
+            box-shadow: 0 0 0 10px #655,
+                        0 0 0 15px deeppink,
+                        0 2px 5px 15px rgba(0, 0, 0, .6);
+        }
+        /* outline */
+        .bar {
+            border: 10px solid #655;
+            outline: 5px solid deeppink;
+        }
+
+        /* 缝边效果 */
+        .foobar {
+            padding: 10px;
+            outline: 1px dashed white;
+            outline-offset: -10px;
+        }
+
+        /* 测试圆角是否修复 */
+        .test {
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            outline: 5px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="foo">
+        This is a div
+    </div>
+    <div class="bar">
+        This is another div
+    </div>
+    <div class="foobar">
+        This is a div for another outline-offset
+    </div>
+    <div class="test">
+        This is a div for test
+    </div>
+</body>
+</html>

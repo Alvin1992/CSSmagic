@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>extended background position</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            margin: 2em auto 0;
+        }
+
+        .foo {
+            background: url(http://csssecrets.io/images/code-pirate.svg) no-repeat bottom right #58a;
+            background-position: right 20px bottom 10px;
+        }
+
+        .bar {
+            padding: 10px;
+            background: url(http://csssecrets.io/images/code-pirate.svg) no-repeat bottom right #58a;
+            -webkit-background-origin: content-box;
+            background-origin: content-box;
+        }
+
+        .foobar {
+            background: url(http://csssecrets.io/images/code-pirate.svg) no-repeat bottom right #58a;
+            background-position: calc(100% - 20px) calc(100% - 10px);
+        }
+    </style>
+</head>
+<body>
+    <div class="foo">
+        This is a div
+    </div>
+
+    <div class="bar">
+        This is another div.
+    </div>
+
+    <div class="foobar">
+        This is a div for testing calc.
+    </div>
+</body>
+</html>
