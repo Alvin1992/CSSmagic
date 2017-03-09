@@ -32,6 +32,10 @@
             background: linear-gradient(white, white) padding-box, repeating-linear-gradient(-45deg, black 0, black 25%, white 0, white 50%) 0 / .6em .6em;
             animation: ant 12s linear infinite;
         }
+        .footnote {
+            border-top: .15em solid transparent;
+            border-image: 100% 0 0 linear-gradient(90deg, currentColor 4em, transparent 0);
+        }
     </style>
 </head>
 <body>
@@ -46,6 +50,9 @@
     </div>
     <div class="foobar">
         This is a div and it's class is 'foo'. And I try to write more words to fill this div.This is a div and it's class is 'foo'. And I try to write more words to fill this div.
+    </div>
+    <div class="footnote">
+        <sup>1</sup> This is a footnote
     </div>
 </body>
 </html>
