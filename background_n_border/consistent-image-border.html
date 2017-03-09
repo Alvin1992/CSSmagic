@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>consistent image border</title>
+    <style>
+        div {
+            margin-top: 20px;
+            width: 200px;
+            height: 200px;
+            padding: 1em;
+            border: 1em solid transparent;
+        }
+        .foo {
+            background: linear-gradient(white, white), url(stone-art.jpg);
+            background-size: cover;
+            background-clip: padding-box, border-box;
+            background-origin: border-box;
+        }
+        .foo1 {
+            background: linear-gradient(white, white) padding-box, url(stone-art.jpg) border-box 0 / cover;
+        }
+        .bar {
+            width: 400px;
+            background: linear-gradient(white, white) padding-box, repeating-linear-gradient(-45deg, red 0, red 12.5%, transparent 0, transparent 25%, #58a 0, #58a 37.5%, transparent 0, transparent 50%) 0 / 5em 5em;
+        }
+        @keyframes ant {
+            to {  background-position: 100%; }
+        }
+        .foobar {
+            border: 1px solid transparent;
+            background: linear-gradient(white, white) padding-box, repeating-linear-gradient(-45deg, black 0, black 25%, white 0, white 50%) 0 / .6em .6em;
+            animation: ant 12s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="foo">
+        This is a div and it's class is 'foo'. And I try to write more words to fill this div.This is a div and it's class is 'foo'. And I try to write more words to fill this div.
+    </div>
+    <div class="foo1">
+        This is a div and it's class is 'foo'. And I try to write more words to fill this div.This is a div and it's class is 'foo'. And I try to write more words to fill this div.
+    </div>
+    <div class="bar">
+        This is a div and it's class is 'foo'. And I try to write more words to fill this div.This is a div and it's class is 'foo'. And I try to write more words to fill this div.
+    </div>
+    <div class="foobar">
+        This is a div and it's class is 'foo'. And I try to write more words to fill this div.This is a div and it's class is 'foo'. And I try to write more words to fill this div.
+    </div>
+</body>
+</html>
